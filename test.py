@@ -3,7 +3,7 @@ import requests
 
 # --- Dummy credentials for login (you can replace with database check)
 CREDENTIALS = {
-    "john": "1234",
+    "aizh": "1234",
     "alice": "abcd"
 }
 
@@ -47,6 +47,7 @@ def action_item_form():
         meeting_title = st.text_input("Meeting Title")
         action_item = st.text_area("Action Item")
         assigned_to = st.text_input("Assigned To")
+        email = st.text_input("Email")  # <-- Added email field here
         due_date = st.date_input("Due Date")
 
         submit = st.form_submit_button("Submit")
@@ -57,6 +58,7 @@ def action_item_form():
                 "meeting_title": meeting_title,
                 "action_item": action_item,
                 "assigned_to": assigned_to,
+                "email": email,  # <-- Added email to payload
                 "due_date": due_date.isoformat()
             }
 
